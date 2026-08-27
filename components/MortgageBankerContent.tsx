@@ -1,7 +1,7 @@
 'use client';
 import '@/builder-registry';
 import { useEffect, useState } from 'react';
-import { builder, useIsPreviewing } from '@builder.io/react';
+import { builder, BuilderComponent, useIsPreviewing } from '@builder.io/react';
 import DefaultErrorPage from 'next/error';
 import MortgageBankerTemplate from '@/components/MortgageBankerTemplate';
 import NavBar from '@/components/NavBar';
@@ -15,20 +15,28 @@ interface MortgageBankerContentProps {
 
 export function MortgageBankerContent({ slug }: MortgageBankerContentProps) {
   const [content, setContent] = useState<{ data?: Record<string, any> } | null>(null);
+  const [template, setTemplate] = useState<Record<string, any> | null>(null);
   const [loaded, setLoaded] = useState(false);
   const isPreviewing = useIsPreviewing();
 
   useEffect(() => {
     setLoaded(false);
-    builder
-      .get('mortgage-banker-data', {
-        query: { 'data.slug': slug },
-      })
-      .promise()
-      .then((result) => {
-        setContent(result);
-        setLoaded(true);
-      });
+    Promise.all([
+      builder
+        .get('mortgage-banker-data', {
+          query: { 'data.slug': slug },
+        })
+        .promise(),
+      builder
+        .get('mortgage-banker', {
+          options: { includeRefs: true },
+        })
+        .promise(),
+    ]).then(([bankerResult, templateResult]) => {
+      setContent(bankerResult);
+      setTemplate(templateResult || null);
+      setLoaded(true);
+    });
   }, [slug]);
 
   if (!loaded) {
@@ -46,6 +54,17 @@ export function MortgageBankerContent({ slug }: MortgageBankerContentProps) {
   }
 
   const data = content?.data || {};
+
+  if (template) {
+    return (
+      <>
+        <NavBar />
+        <BuilderComponent model="mortgage-banker" content={template} data={{ bankerData: { data } }} />
+        <Footer />
+      </>
+    );
+  }
+
   const licensedStates: string[] = (data.licensedStates || [])
     .map((entry: { state?: string }) => entry?.state)
     .filter(Boolean);
