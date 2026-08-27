@@ -10,10 +10,10 @@ import Footer from '@/components/Footer';
 builder.init(process.env.NEXT_PUBLIC_BUILDER_API_KEY!);
 
 interface MortgageBankerContentProps {
-  urlPath: string;
+  slug: string;
 }
 
-export function MortgageBankerContent({ urlPath }: MortgageBankerContentProps) {
+export function MortgageBankerContent({ slug }: MortgageBankerContentProps) {
   const [content, setContent] = useState<{ data?: Record<string, any> } | null>(null);
   const [loaded, setLoaded] = useState(false);
   const isPreviewing = useIsPreviewing();
@@ -21,15 +21,15 @@ export function MortgageBankerContent({ urlPath }: MortgageBankerContentProps) {
   useEffect(() => {
     setLoaded(false);
     builder
-      .get('mortgage-banker', {
-        userAttributes: { urlPath },
+      .get('mortgage-banker-data', {
+        query: { 'data.slug': slug },
       })
       .promise()
       .then((result) => {
         setContent(result);
         setLoaded(true);
       });
-  }, [urlPath]);
+  }, [slug]);
 
   if (!loaded) {
     return null;

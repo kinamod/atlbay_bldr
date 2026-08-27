@@ -14,11 +14,10 @@ function getSlugFromParams(slug: string[] | undefined) {
 export async function generateMetadata({ params }: BankerPageParams) {
   const { slug } = await params;
   const bankerSlug = getSlugFromParams(slug);
-  const urlPath = `/bankers/${bankerSlug}`;
 
   const content = await builder
-    .get('mortgage-banker', {
-      userAttributes: { urlPath },
+    .get('mortgage-banker-data', {
+      query: { 'data.slug': bankerSlug },
     })
     .promise();
 
@@ -27,20 +26,15 @@ export async function generateMetadata({ params }: BankerPageParams) {
   }
 
   const fullName: string = content.data?.fullName || '';
-  const seoTitle: string =
-    content.data?.seoTitle || (fullName ? `${fullName} | Mortgage Banker | Atlantic Bay` : 'Mortgage Banker | Atlantic Bay');
-  const seoDescription: string | undefined = content.data?.seoDescription || undefined;
 
   return {
-    title: seoTitle,
-    description: seoDescription,
+    title: fullName ? `${fullName} | Mortgage Banker | Atlantic Bay` : 'Mortgage Banker | Atlantic Bay',
   };
 }
 
 export default async function MortgageBankerPage({ params }: BankerPageParams) {
   const { slug } = await params;
   const bankerSlug = getSlugFromParams(slug);
-  const urlPath = `/bankers/${bankerSlug}`;
 
-  return <MortgageBankerContent urlPath={urlPath} />;
+  return <MortgageBankerContent slug={bankerSlug} />;
 }
