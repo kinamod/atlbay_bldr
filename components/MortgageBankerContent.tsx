@@ -1,7 +1,7 @@
 'use client';
 import '@/builder-registry';
 import { useEffect, useState } from 'react';
-import { builder, useIsPreviewing } from '@builder.io/react';
+import { builder, BuilderComponent, useIsPreviewing } from '@builder.io/react';
 import DefaultErrorPage from 'next/error';
 import MortgageBankerTemplate from '@/components/MortgageBankerTemplate';
 import NavBar from '@/components/NavBar';
@@ -10,26 +10,36 @@ import Footer from '@/components/Footer';
 builder.init(process.env.NEXT_PUBLIC_BUILDER_API_KEY!);
 
 interface MortgageBankerContentProps {
-  urlPath: string;
+  slug: string;
 }
 
-export function MortgageBankerContent({ urlPath }: MortgageBankerContentProps) {
+export function MortgageBankerContent({ slug }: MortgageBankerContentProps) {
   const [content, setContent] = useState<{ data?: Record<string, any> } | null>(null);
+  const [template, setTemplate] = useState<Record<string, any> | null>(null);
   const [loaded, setLoaded] = useState(false);
   const isPreviewing = useIsPreviewing();
 
   useEffect(() => {
     setLoaded(false);
-    builder
-      .get('mortgage-banker', {
-        userAttributes: { urlPath },
-      })
-      .promise()
-      .then((result) => {
-        setContent(result);
-        setLoaded(true);
-      });
-  }, [urlPath]);
+    Promise.all([
+      builder
+        .get('mortgage-banker-data', {
+          query: { 'data.slug': slug },
+          cachebust: true,
+        })
+        .promise(),
+      builder
+        .get('mortgage-banker', {
+          options: { includeRefs: true },
+          cachebust: true,
+        })
+        .promise(),
+    ]).then(([bankerResult, templateResult]) => {
+      setContent(bankerResult);
+      setTemplate(templateResult || null);
+      setLoaded(true);
+    });
+  }, [slug]);
 
   if (!loaded) {
     return null;
@@ -46,6 +56,22 @@ export function MortgageBankerContent({ urlPath }: MortgageBankerContentProps) {
   }
 
   const data = content?.data || {};
+  const firstName = data.fullName?.split(' ')[0] || '';
+
+  if (template) {
+    return (
+      <>
+        <NavBar />
+        <BuilderComponent
+          model="mortgage-banker"
+          content={template}
+          data={{ bankerData: { data: { ...data, firstName } } }}
+        />
+        <Footer />
+      </>
+    );
+  }
+
   const licensedStates: string[] = (data.licensedStates || [])
     .map((entry: { state?: string }) => entry?.state)
     .filter(Boolean);
