@@ -1,0 +1,47 @@
+.showcaseMain {
+  min-height: 100vh;
+  background: #fff;
+  font-family: system-ui, sans-serif;
+}
+
+.emptyState {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.emptyStateText {
+  font-size: 16px;
+  color: #a0aec0;
+  text-align: center;
+}
+
+/* ── Per-component showcase sections ── */
+
+.showcaseSection {
+  border-top: 1px solid #e2e8f0;
+}
+
+.showcaseSectionHeader {
+  padding: 24px 32px 16px;
+}
+
+.showcaseSectionHeader h2 {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #718096;
+  margin: 0 0 4px 0;
+}
+
+.showcaseSectionDescription {
+  font-size: 13px;
+  color: #a0aec0;
+  margin: 0;
+}
+
+.showcaseComponentWrapper {
+  width: 100%;
+}

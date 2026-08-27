@@ -1,0 +1,112 @@
+.carouselWrap {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  font-family: "Averta PE", sans-serif;
+}
+
+.arrowButton {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 10;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0 8px;
+}
+
+.slideTrack {
+  width: 100%;
+}
+
+.slide {
+  width: 100%;
+  min-width: 100%;
+}
+
+.slideInner {
+  background-color: #f5fafd;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 24px 32px;
+  text-align: center;
+}
+
+.slideHeading {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.headingBadge {
+  background-color: #3c9dfd;
+  color: #f7fafc;
+  font-size: 22px;
+  font-weight: 600;
+  padding: 1px 5px;
+  width: fit-content;
+}
+
+.headingBadgeAlt {
+  background-color: #6ecef7;
+  color: #0b395b;
+  font-size: 22px;
+  font-weight: 600;
+  padding: 1px 5px;
+  width: fit-content;
+}
+
+.slideContent {
+  max-width: 480px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.slideText {
+  font-size: 15px;
+  line-height: 20px;
+  margin: 0 0 12px;
+  color: #031d30;
+}
+
+.socialRow {
+  display: flex;
+  gap: 10px;
+}
+
+.socialLink {
+  cursor: pointer;
+}
+
+.slideLink {
+  color: #0274e8;
+  text-decoration: underline;
+}
+
+@media (min-width: 640px) {
+  .slideInner {
+    padding: 24px 64px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .slideInner {
+    padding: 24px 104px;
+  }
+
+  .slideHeading {
+    flex-direction: row;
+    gap: 8px;
+  }
+
+  .slideContent {
+    text-align: left;
+  }
+}

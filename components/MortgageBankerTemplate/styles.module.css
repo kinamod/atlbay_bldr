@@ -1,0 +1,199 @@
+.page {
+  font-family: "Averta PE", sans-serif;
+  background-color: #ffffff;
+  color: #031d30;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 40px 20px;
+  background-color: #031d30;
+  color: #ffffff;
+  text-align: center;
+}
+
+.headshot {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #ffffff;
+}
+
+.headshotPlaceholder {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background-color: #0b395b;
+  border: 3px solid #ffffff;
+}
+
+.heroInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  max-width: 480px;
+}
+
+.fullName {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.jobTitle {
+  font-size: 16px;
+  color: #9edefa;
+  margin: 0;
+}
+
+.location {
+  font-size: 14px;
+  color: #d9e6ef;
+  margin: 0;
+}
+
+.nmls {
+  font-size: 12px;
+  color: #a0b6c6;
+  margin: 0;
+}
+
+.badgeRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.stateBadge {
+  background-color: #0b395b;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 999px;
+}
+
+.specialismBadge {
+  background-color: transparent;
+  color: #9edefa;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border: 1px solid #9edefa;
+  border-radius: 999px;
+}
+
+.espanolBadge {
+  background-color: #fdc600;
+  color: #031d30;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 999px;
+  margin-top: 4px;
+}
+
+.contactBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 12px;
+}
+
+.contactLink {
+  color: #ffffff;
+  font-size: 15px;
+  text-decoration: underline;
+}
+
+.applyCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 16px;
+  padding: 14px 32px;
+  background-color: #fdc600;
+  color: #031d30;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 4px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.testimonialSection {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 48px 20px;
+  text-align: center;
+}
+
+.testimonialQuote {
+  font-size: 20px;
+  font-style: italic;
+  line-height: 1.5;
+  color: #031d30;
+  margin: 0 0 12px;
+}
+
+.testimonialAuthor {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0b395b;
+  margin: 0;
+}
+
+.bioSection {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 20px 56px;
+}
+
+.bioHeading {
+  font-size: 22px;
+  font-weight: 700;
+  color: #031d30;
+  margin: 0 0 12px;
+}
+
+.bioContent {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333d47;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    padding: 56px 48px;
+    gap: 40px;
+  }
+
+  .heroInfo {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .badgeRow {
+    justify-content: flex-start;
+  }
+
+  .headshot,
+  .headshotPlaceholder {
+    width: 200px;
+    height: 200px;
+  }
+
+  .fullName {
+    font-size: 36px;
+  }
+}

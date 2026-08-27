@@ -1,0 +1,136 @@
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 480px;
+  padding: 32px 24px;
+  font-family: "Averta PE", sans-serif;
+  overflow: hidden;
+}
+
+.heroBackgroundWrap {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -10;
+}
+
+.heroBackgroundImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.heroImageRow {
+  display: none;
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 27px;
+  width: 100%;
+  max-width: 538px;
+  text-align: center;
+}
+
+.heroHeadingGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.heroHeadingTop {
+  background-color: #004269;
+  color: #f7fafc;
+  font-size: 48px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  line-height: 1;
+  padding: 4px 12px;
+  text-transform: uppercase;
+}
+
+.heroHeadingBottom {
+  background-color: #022946;
+  color: #9edefa;
+  font-family: mascot-mvb-rough-2, "Averta PE", sans-serif;
+  font-size: 48px;
+  letter-spacing: -1px;
+  line-height: 1;
+  padding: 4px 12px;
+  margin-top: -4px;
+}
+
+.heroDescription {
+  background-color: #013a74;
+  color: #f7fafc;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 16px 20px;
+  margin-top: 16px;
+  width: 100%;
+}
+
+.heroCtaRow {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  width: 100%;
+  max-width: 380px;
+}
+
+.heroCta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fdc600;
+  border: 1px solid #fdc600;
+  border-radius: 2px;
+  color: #000;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 13px;
+  padding: 11px 10px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    min-height: 524px;
+    padding: 48px;
+  }
+
+  .heroImageRow {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 12px;
+    max-width: 1339px;
+    margin: 0 auto 24px;
+  }
+
+  .heroImageWrap {
+    flex: 1;
+    max-width: 220px;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 4px;
+  }
+
+  .heroImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .heroHeadingTop,
+  .heroHeadingBottom {
+    font-size: 84px;
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "name": "barebuilder",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": "22.x"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "test-browserless": "node scripts/test-browserless.js",
+    "clone": "node scripts/render-page.js"
+  },
+  "dependencies": {
+    "@builder.io/dev-tools": "^1.11.19",
+    "@builder.io/react": "^8.2.7",
+    "@builder.io/sdk": "^6.1.2",
+    "@kinamod/fusion2publish": "^1.0.0",
+    "next": "^16.0.8",
+    "react": "19.1.0",
+    "react-dom": "19.1.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "^16.0.8",
+    "puppeteer": "^25.1.0",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}

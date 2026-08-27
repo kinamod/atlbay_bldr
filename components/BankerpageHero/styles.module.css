@@ -1,0 +1,173 @@
+.hero {
+  position: relative;
+  z-index: 0;
+  font-family: "Averta PE", sans-serif;
+  overflow: hidden;
+  min-height: 480px;
+}
+
+.backgroundWrap {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.backgroundImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(6px);
+  transform: scale(1.05);
+}
+
+.backgroundGradient {
+  position: absolute;
+  inset: 0;
+  bottom: 0;
+  height: 50%;
+  top: auto;
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(135, 135, 135, 0) 100%);
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  max-width: 1248px;
+  margin: 0 auto;
+  padding: 32px 24px 32px;
+}
+
+.headshotWrap {
+  margin-top: 32px;
+  width: 160px;
+  height: 160px;
+  max-width: 312px;
+  max-height: 312px;
+  border-radius: 50%;
+  border: 16px solid rgba(248, 250, 252, 0.35);
+  overflow: hidden;
+}
+
+.headshot {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.firstName {
+  color: #ffffff;
+  font-family: "Playfair Display", serif;
+  font-size: 64px;
+  font-weight: 900;
+  letter-spacing: -1.3px;
+  line-height: 1.1;
+  margin: 16px 0 0;
+}
+
+.infoList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.fullName {
+  color: #ffffff;
+  font-family: "Playfair Display", serif;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 28px;
+}
+
+.jobTitle,
+.nmls {
+  color: #ffffff;
+  font-family: "Playfair Display", serif;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.licensedIn {
+  color: #ffffff;
+  font-family: "Playfair Display", serif;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.contactList {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  margin: 16px 0 0;
+  padding-left: 8px;
+  border-left: 1px solid #ffffff;
+  list-style: none;
+}
+
+.contactLink {
+  color: #ffffff;
+  font-family: "Playfair Display", serif;
+  font-size: 16px;
+  line-height: 20px;
+  text-decoration: none;
+}
+
+.calendlyItem {
+  display: flex;
+  align-items: center;
+}
+
+.calendlyLink {
+  color: #ffffff;
+  font-family: "Playfair Display", serif;
+  font-size: 16px;
+  line-height: 20px;
+  margin-right: 12px;
+  text-decoration: none;
+}
+
+.calendlyIcon {
+  width: 24px;
+  height: 24px;
+}
+
+@media (min-width: 768px) {
+  .content {
+    padding: 48px 48px 32px;
+  }
+
+  .headshotWrap {
+    width: 260px;
+    height: 260px;
+  }
+
+  .firstName {
+    font-size: 120px;
+    letter-spacing: -2.4px;
+    line-height: 1;
+  }
+
+  .contactList {
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .headshotWrap {
+    width: 312px;
+    height: 312px;
+  }
+
+  .firstName {
+    font-size: 160px;
+    letter-spacing: -3.2px;
+    line-height: 176px;
+  }
+}

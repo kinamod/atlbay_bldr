@@ -1,0 +1,20 @@
+# Builder Rules
+
+This project creates custom React components for Builder.io publishing.
+
+## Default Behaviour
+
+Unless explicitly overridden, every new component must:
+1. Be created using the `create-component` skill
+2. Be registered in `builder-registry.ts` using the `register-component` skill
+3. Be added to the showcase in `app/showcase/page.tsx` using the `showcase-component` skill
+
+Additionally, header/nav and footer components are automatically wired into the homepage layout (`app/page.tsx`, served at `/`): a hardcoded header, Builder Publish content in the middle, and a hardcoded footer. A component is treated as header/footer by naming convention (name contains `Header`/`NavBar` or `Footer`); every other component stays out of `app/page.tsx` and is Builder-managed content only.
+
+## Overriding Default Behaviour
+
+Opt out by saying:
+- "Don't add this to the showcase" → skip step 3
+- "Don't register this in builder-registry" → skip step 2
+- "This is an internal utility component" → skip steps 2 and 3
+- "Don't add this to the homepage layout" → skip wiring it into `app/page.tsx`'s header/footer slot

@@ -1,0 +1,97 @@
+.navHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1248px;
+  min-height: 88px;
+  margin: 0 auto;
+  padding: 16px 24px;
+  font-family: "Averta PE", sans-serif;
+  background-color: #ffffff;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.navLogoLink {
+  display: flex;
+  align-items: center;
+  height: 45px;
+  cursor: pointer;
+}
+
+.navLogo {
+  height: 48px;
+  width: auto;
+  max-width: 100%;
+}
+
+.navToggle {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  padding: 10px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.navToggleBar {
+  width: 20px;
+  height: 2px;
+  background-color: #031d30;
+}
+
+.navList {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  font-size: 16px;
+  line-height: 20px;
+  color: #031d30;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.navCta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 40px;
+  border-radius: 4px;
+  background-color: #ffd22e;
+  color: #000;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .navToggle {
+    display: flex;
+  }
+
+  .navList {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+
+  .navListOpen {
+    display: flex;
+  }
+}

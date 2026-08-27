@@ -1,0 +1,91 @@
+.section {
+  max-width: 1248px;
+  margin: 0 auto;
+  padding: 32px 24px 40px;
+  font-family: "Averta PE", sans-serif;
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.heading {
+  font-family: "Playfair Display", serif;
+  font-size: 28px;
+  letter-spacing: -0.5px;
+  line-height: 1.3;
+  color: #031d30;
+  margin: 0;
+}
+
+.controls {
+  display: flex;
+  gap: 8px;
+}
+
+.controlButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(3, 29, 48, 0.06);
+  color: #031d30;
+  cursor: pointer;
+}
+
+.controlButton:hover {
+  background-color: rgba(3, 29, 48, 0.12);
+}
+
+.controlIcon {
+  width: 13px;
+  height: 11px;
+}
+
+.track {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+}
+
+.track::-webkit-scrollbar {
+  display: none;
+}
+
+.slide {
+  flex: 0 0 auto;
+  width: 260px;
+  scroll-snap-align: start;
+}
+
+.slideImage {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .heading {
+    font-size: 40px;
+    line-height: 1.4;
+  }
+
+  .slide {
+    width: 400px;
+  }
+
+  .slideImage {
+    height: 288px;
+  }
+}
