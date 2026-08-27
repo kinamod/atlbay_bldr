@@ -25,11 +25,13 @@ export function MortgageBankerContent({ slug }: MortgageBankerContentProps) {
       builder
         .get('mortgage-banker-data', {
           query: { 'data.slug': slug },
+          cachebust: true,
         })
         .promise(),
       builder
         .get('mortgage-banker', {
           options: { includeRefs: true },
+          cachebust: true,
         })
         .promise(),
     ]).then(([bankerResult, templateResult]) => {
@@ -54,12 +56,17 @@ export function MortgageBankerContent({ slug }: MortgageBankerContentProps) {
   }
 
   const data = content?.data || {};
+  const firstName = data.fullName?.split(' ')[0] || '';
 
   if (template) {
     return (
       <>
         <NavBar />
-        <BuilderComponent model="mortgage-banker" content={template} data={{ bankerData: { data } }} />
+        <BuilderComponent
+          model="mortgage-banker"
+          content={template}
+          data={{ bankerData: { data: { ...data, firstName } } }}
+        />
         <Footer />
       </>
     );
