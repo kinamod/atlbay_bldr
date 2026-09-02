@@ -58,6 +58,17 @@ export function MortgageBankerContent({ slug }: MortgageBankerContentProps) {
   const data = content?.data || {};
   const firstName = data.fullName?.split(' ')[0] || '';
 
+  const licensedStates: string[] = (data.licensedStates || [])
+    .map((entry: { state?: string } | string) =>
+      typeof entry === 'string' ? entry : entry?.state
+    )
+    .filter(Boolean);
+  const specialisms: string[] = (data.specialisms || [])
+    .map((entry: { specialism?: string } | string) =>
+      typeof entry === 'string' ? entry : entry?.specialism
+    )
+    .filter(Boolean);
+
   if (template) {
     return (
       <>
@@ -65,19 +76,12 @@ export function MortgageBankerContent({ slug }: MortgageBankerContentProps) {
         <BuilderComponent
           model="mortgage-banker"
           content={template}
-          data={{ bankerData: { data: { ...data, firstName } } }}
+          data={{ bankerData: { data: { ...data, firstName, licensedStates, specialisms } } }}
         />
         <Footer />
       </>
     );
   }
-
-  const licensedStates: string[] = (data.licensedStates || [])
-    .map((entry: { state?: string }) => entry?.state)
-    .filter(Boolean);
-  const specialisms: string[] = (data.specialisms || [])
-    .map((entry: { specialism?: string }) => entry?.specialism)
-    .filter(Boolean);
 
   return (
     <>
