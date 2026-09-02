@@ -1,8 +1,12 @@
 .section {
   max-width: 1248px;
   margin: 0 auto;
-  padding: 0 24px 40px;
+  padding: 0 48px 40px;
   font-family: "Averta PE", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 30px;
+  letter-spacing: normal;
   color: #031d30;
 }
 
@@ -17,6 +21,7 @@
 .layout {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   gap: 32px;
 }
 
@@ -27,10 +32,10 @@
 }
 
 .intro {
-  color: #75808f;
+  color: rgb(117, 128, 143);
   font-size: 24px;
   line-height: 1.4;
-  margin: 0;
+  margin: 0 0 32px;
 }
 
 .bioColumn {
@@ -40,6 +45,7 @@
 
 .bioText {
   max-height: 220px;
+  margin-bottom: 32px;
   overflow: hidden;
   position: relative;
 }
@@ -50,8 +56,12 @@
 
 .bioParagraph {
   font-size: 16px;
-  line-height: 1.6;
-  margin: 0 0 24px;
+  line-height: 32px;
+  margin: 0 0 32px;
+}
+
+.bioParagraph:last-child {
+  margin-bottom: 0;
 }
 
 .contactCta,
@@ -59,15 +69,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #0274e8;
-  border: 1.5px solid #0274e8;
+  background-color: rgb(2, 116, 232);
+  border: 1px solid rgb(2, 116, 232);
   border-radius: 2px;
-  color: #ffffff;
+  color: rgb(255, 255, 255);
   font-size: 16px;
   font-weight: 600;
+  line-height: 20px;
   padding: 12px 40px;
+  width: 100%;
   text-decoration: none;
   transition: opacity 0.3s ease-in-out;
+  cursor: pointer;
 }
 
 .contactCta:hover,
@@ -80,32 +93,46 @@
 }
 
 .readMoreButton {
-  display: flex;
   align-items: center;
+  display: flex;
   width: 100%;
   border: none;
-  border-top: 1.5px solid #75808f;
+  border-top: 1px solid rgb(117, 128, 143);
   background: transparent;
   cursor: pointer;
   padding: 16px 0 0;
+  position: relative;
+  text-align: center;
 }
 
 .readMoreLabel {
-  color: #75808f;
+  color: rgb(117, 128, 143);
   font-size: 16px;
+  line-height: 24px;
   margin-right: 8px;
+  min-width: 84px;
+  text-align: center;
 }
 
 .readMoreIcon {
-  color: #75808f;
+  color: rgb(117, 128, 143);
+  cursor: pointer;
+  display: flex;
+  fill: rgb(117, 128, 143);
   font-size: 18px;
   margin-left: auto;
+  text-align: center;
 }
 
 @media (min-width: 1024px) {
+  .section {
+    padding: 0 48px 40px;
+  }
+
   .heading {
     font-size: 44px;
-    line-height: 1.35;
+    letter-spacing: -0.88px;
+    line-height: 60px;
     margin-bottom: 32px;
   }
 
@@ -122,7 +149,7 @@
 
   .intro {
     font-size: 36px;
-    line-height: 1.2;
+    line-height: 44px;
   }
 
   .contactCta {
@@ -131,6 +158,10 @@
 
   .bioColumn {
     flex: 7;
+  }
+
+  .bioText {
+    max-height: 672px;
   }
 
   .contactCtaMobile {
