@@ -1,0 +1,127 @@
+.form {
+  max-width: 480px;
+  margin: 64px auto;
+  padding: 32px 24px 48px;
+  display: flex;
+  flex-direction: column;
+  font-family: "Averta PE", sans-serif;
+}
+
+.heading {
+  font-family: "Playfair Display", serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #0b395b;
+  margin: 0 0 8px;
+}
+
+.subheading {
+  font-size: 15px;
+  color: #4a5568;
+  margin: 0 0 24px;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0b395b;
+  margin: 20px 0 8px;
+}
+
+.input {
+  border: 1px solid #cbd5e0;
+  border-radius: 6px;
+  padding: 10px 12px;
+  font-size: 15px;
+  font-family: inherit;
+}
+
+.headshotPreview {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-top: 12px;
+}
+
+.statesList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.stateRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stateInput {
+  border: 1px solid #cbd5e0;
+  border-radius: 6px;
+  padding: 10px 12px;
+  font-size: 15px;
+  font-family: inherit;
+  width: 80px;
+  text-transform: uppercase;
+}
+
+.removeStateButton {
+  border: none;
+  background: none;
+  color: #a0aec0;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 4px 8px;
+}
+
+.removeStateButton:hover {
+  color: #e53e3e;
+}
+
+.addStateButton {
+  align-self: flex-start;
+  border: none;
+  background: none;
+  color: #0274e8;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 8px;
+  padding: 0;
+}
+
+.submitButton {
+  margin-top: 28px;
+  background: #0274e8;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 14px 20px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.submitButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.error {
+  color: #e53e3e;
+  font-size: 14px;
+  margin: 12px 0 0;
+}
+
+.success {
+  color: #2f855a;
+  font-size: 14px;
+  margin: 16px 0 0;
+}
+
+.successLink {
+  color: #0274e8;
+  font-weight: 600;
+}
