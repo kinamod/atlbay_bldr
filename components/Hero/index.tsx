@@ -50,10 +50,15 @@ export default function Hero({
   const [rightIndex, setRightIndex] = useState(3 % images.length);
 
   useEffect(() => {
+    let tick = 0;
     const interval = setInterval(() => {
-      setLeftIndex((i) => (i + 1) % images.length);
-      setRightIndex((i) => (i + 1) % images.length);
-    }, ROTATE_INTERVAL_MS);
+      if (tick % 2 === 0) {
+        setLeftIndex((i) => (i + 1) % images.length);
+      } else {
+        setRightIndex((i) => (i + 1) % images.length);
+      }
+      tick += 1;
+    }, ROTATE_INTERVAL_MS / 2);
     return () => clearInterval(interval);
   }, [images.length]);
 
@@ -64,24 +69,28 @@ export default function Hero({
       </div>
 
       <div className={`${styles.heroImageSlot} ${styles.heroImageSlotLeft}`}>
-        <img
-          key={images[leftIndex]}
-          src={images[leftIndex]}
-          alt=""
-          role="presentation"
-          aria-hidden="true"
-          className={styles.heroImage}
-        />
+        {images.map((src, index) => (
+          <img
+            key={src}
+            src={src}
+            alt=""
+            role="presentation"
+            aria-hidden="true"
+            className={`${styles.heroImageLayer} ${index === leftIndex ? styles.heroImageLayerVisible : ''}`}
+          />
+        ))}
       </div>
       <div className={`${styles.heroImageSlot} ${styles.heroImageSlotRight}`}>
-        <img
-          key={images[rightIndex]}
-          src={images[rightIndex]}
-          alt=""
-          role="presentation"
-          aria-hidden="true"
-          className={styles.heroImage}
-        />
+        {images.map((src, index) => (
+          <img
+            key={src}
+            src={src}
+            alt=""
+            role="presentation"
+            aria-hidden="true"
+            className={`${styles.heroImageLayer} ${index === rightIndex ? styles.heroImageLayerVisible : ''}`}
+          />
+        ))}
       </div>
 
       <div className={styles.heroContent}>
