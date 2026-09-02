@@ -1,3 +1,5 @@
+'use client';
+import { useEffect, useState } from 'react';
 import styles from './styles.module.css';
 
 interface HeroProps {
@@ -16,6 +18,8 @@ interface HeroProps {
   secondaryCtaLabel?: string;
   secondaryCtaHref?: string;
 }
+
+const ROTATE_INTERVAL_MS = 3200;
 
 export default function Hero({
   backgroundImageUrl = 'https://www.atlanticbay.com/static/8c9f0d0a0522cc223c814e669429d4b6/3f404/hero-background.webp',
@@ -42,18 +46,42 @@ export default function Hero({
     homebuyerImage6Url,
   ];
 
+  const [leftIndex, setLeftIndex] = useState(0);
+  const [rightIndex, setRightIndex] = useState(3 % images.length);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setLeftIndex((i) => (i + 1) % images.length);
+      setRightIndex((i) => (i + 1) % images.length);
+    }, ROTATE_INTERVAL_MS);
+    return () => clearInterval(interval);
+  }, [images.length]);
+
   return (
     <section className={styles.hero}>
       <div className={styles.heroBackgroundWrap}>
         <img src={backgroundImageUrl} alt="" aria-hidden="true" className={styles.heroBackgroundImage} />
       </div>
 
-      <div className={styles.heroImageRow}>
-        {images.map((src, index) => (
-          <div key={src + index} className={styles.heroImageWrap}>
-            <img src={src} alt="" role="presentation" aria-hidden="true" loading="lazy" className={styles.heroImage} />
-          </div>
-        ))}
+      <div className={`${styles.heroImageSlot} ${styles.heroImageSlotLeft}`}>
+        <img
+          key={images[leftIndex]}
+          src={images[leftIndex]}
+          alt=""
+          role="presentation"
+          aria-hidden="true"
+          className={styles.heroImage}
+        />
+      </div>
+      <div className={`${styles.heroImageSlot} ${styles.heroImageSlotRight}`}>
+        <img
+          key={images[rightIndex]}
+          src={images[rightIndex]}
+          alt=""
+          role="presentation"
+          aria-hidden="true"
+          className={styles.heroImage}
+        />
       </div>
 
       <div className={styles.heroContent}>
