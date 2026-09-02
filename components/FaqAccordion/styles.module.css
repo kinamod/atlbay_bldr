@@ -1,0 +1,120 @@
+.container {
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(203, 210, 221);
+  border-radius: 5px;
+  max-width: 1152px;
+  width: 100%;
+  padding: 42px 31px;
+  margin: 0 auto;
+  font-family: "Averta PE", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 30px;
+  letter-spacing: normal;
+  box-sizing: border-box;
+}
+
+.header {
+  margin-bottom: 10px;
+}
+
+.heading {
+  align-items: center;
+  color: rgb(45, 55, 72);
+  display: flex;
+  font-size: 28px;
+  font-weight: 700;
+  gap: 10px;
+  letter-spacing: -0.56px;
+  line-height: 32px;
+  margin: 0 0 10px;
+}
+
+.headingIcon {
+  flex-shrink: 0;
+  height: 24px;
+  width: 24px;
+  stroke: rgb(26, 32, 44);
+}
+
+.intro {
+  color: rgb(92, 102, 119);
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.36px;
+  line-height: 32px;
+  margin: 0;
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.item {
+  overflow: hidden;
+  padding: 0 38px;
+}
+
+.itemHeading {
+  color: rgb(45, 55, 72);
+  font-weight: 600;
+  letter-spacing: -0.4px;
+  line-height: 44px;
+  margin: 0;
+}
+
+.button {
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid rgb(226, 232, 240);
+  color: rgb(45, 55, 72);
+  cursor: pointer;
+  display: flex;
+  font-family: inherit;
+  font-size: 20px;
+  font-weight: 600;
+  justify-content: space-between;
+  letter-spacing: -0.4px;
+  line-height: 44px;
+  padding: 14px 0;
+  text-align: left;
+  width: 100%;
+}
+
+.chevron,
+.chevronOpen {
+  cursor: pointer;
+  flex-shrink: 0;
+  height: 24px;
+  width: 24px;
+  stroke: rgb(45, 55, 72);
+  transition: transform 0.2s ease-in-out;
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+.answerWrapper,
+.answerWrapperOpen {
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: height 0.2s ease-in-out, opacity 0.2s ease-in-out;
+}
+
+.answerWrapperOpen {
+  height: auto;
+  opacity: 1;
+}
+
+.answer {
+  color: rgb(92, 102, 119);
+  font-size: 18px;
+  line-height: 32px;
+  margin: 0;
+  padding-top: 10px;
+}

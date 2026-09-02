@@ -7,6 +7,7 @@ import Footer from '@/components/Footer';
 import BankerpageHero from '@/components/BankerpageHero';
 import BankerpageAboutMe from '@/components/BankerpageAboutMe';
 import BankerpageStory from '@/components/BankerpageStory';
+import FaqAccordion from '@/components/FaqAccordion';
 
 export default function ShowcasePage() {
   return (
@@ -92,6 +93,18 @@ export default function ShowcasePage() {
         </div>
         <div className={styles.showcaseComponentWrapper}>
           <BankerpageStory />
+        </div>
+      </section>
+
+      <section className={styles.showcaseSection}>
+        <div className={styles.showcaseSectionHeader}>
+          <h2>Faq Accordion</h2>
+          <p className={styles.showcaseSectionDescription}>
+            Expandable list of frequently asked questions with a single open accordion item at a time.
+          </p>
+        </div>
+        <div className={styles.showcaseComponentWrapper}>
+          <FaqAccordion />
         </div>
       </section>
     </main>
